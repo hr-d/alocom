@@ -74,4 +74,18 @@ class RoomCollection extends Room
     {
         return $this->get_alocomLink();
     }
+
+    /**
+     * the class room files
+     * @return string
+     */
+    public function recordingFiles($skip = 0, $take = 100, $flag = null)
+    {
+        $id = $this->get_id();
+        if (empty($id)) {
+            return [];
+        }
+        return $this->request->make("agents/events/{$id}/files", 'POST', ['flag' => $flag, 'skip' => $skip, 'take' => $take]);
+    }
+
 }
