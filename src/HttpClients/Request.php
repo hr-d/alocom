@@ -4,9 +4,9 @@ namespace HRD\Alocom\HttpClients;
 
 class Request
 {
-    const ALOCOME_BASE_API_URL_ENV_NAME = "ALOCOME_BASE_API_URL";
-    const ALOCOME_USERNAME_ENV_NAME = "ALOCOME_USERNAME";
-    const ALOCOME_PASSWORD_ENV_NAME = "ALOCOME_PASSWORD";
+    const ALOCOM_BASE_API_URL_ENV_NAME = "ALOCOM_BASE_API_URL";
+    const ALOCOM_USERNAME_ENV_NAME = "ALOCOM_USERNAME";
+    const ALOCOM_PASSWORD_ENV_NAME = "ALOCOM_PASSWORD";
 
     /**
      * @var GuzzleHttpClient
@@ -50,8 +50,8 @@ class Request
      */
     private function get_auth()
     {
-        $username = getenv(self::ALOCOME_USERNAME_ENV_NAME);
-        $password = getenv(self::ALOCOME_PASSWORD_ENV_NAME);
+        $username = getenv(self::ALOCOM_USERNAME_ENV_NAME);
+        $password = getenv(self::ALOCOM_PASSWORD_ENV_NAME);
         try {
             $result = $this->client->make($this->get_apiUrl('auth/login'), "post", [
                 "username" => $username,
@@ -69,6 +69,6 @@ class Request
      */
     private function get_apiUrl(string $path)
     {
-        return getenv(self::ALOCOME_BASE_API_URL_ENV_NAME) . '/api/v1/' . $path;
+        return getenv(self::ALOCOM_BASE_API_URL_ENV_NAME) . '/api/v1/' . $path;
     }
 }

@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "HRD\\Alocome\\": "src/"
+            "HRD\\Alocom\\": "src/"
         }
     }
 }
